@@ -63,4 +63,56 @@ function showStartScreen() {
   noLoop(); 
 }
 
+function mousePressed() {
+  if (gameStarted === false) {
+    startGame();
+  }
+}
+
+function startGame() {
+  updateFruitCoordinates();
+
+  segments = [];
+  for (let x = xStart; x < xStart + startingSegment; x += 1) {
+    let segmentPosition = createVector(x, yStart);
+    segments.unshift(segmentsPosition);
+  }
+
+  direction = startDirection;
+  score = 0 
+  gameStarted = true;
+  loop();
+
+}
+
+function showSegments() {
+  noFill();
+  stroke(96, 255, 64);
+  beginShape();
+  for (let segment of segments) {
+    vertex(segment.x, segment.y);
+  }
+  endShape();
+}
+
+function updatesSegments() {
+  segments.pop();
+  let head = segments[0].copy();
+  segments.unshift(head);
+  switch (direction) {
+    case 'right':
+      head.x = head.x + 1;
+      break;
+   case 'up':
+    head.y = head.y - 1;
+    break;
+   case 'left':
+    head.x = head.x - 1;
+    break;
+   case 'down':
+    head.y = head.y + 1;
+    break;     
+  }
+}
+
 
