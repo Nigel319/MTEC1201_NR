@@ -29,7 +29,7 @@ function setup(){
 
   highScore = getItem('high score');
 
-  describe ('A reproduction of the arcade game Snake, in which a snake, represented by a green line on a black background, is controlled by the arrow keys. Users move the snake toward a fruit, represented by a red dot, but the snake must not hit the sides of the window or itself'
+  describe ('A reproduction of the arcade game Snake, in which a snake, represented by a green line on a black background, is controlled by the arrow keys. Users move the snake toward a fruit, represented by a red dot, but the snake must not hit the sides of the window or itself.'
     );
 }
 
@@ -73,9 +73,9 @@ function startGame() {
   updateFruitCoordinates();
 
   segments = [];
-  for (let x = xStart; x < xStart + startingSegment; x += 1) {
+  for (let x = xStart; x < xStart + startingSegments; x += 1) {
     let segmentPosition = createVector(x, yStart);
-    segments.unshift(segmentsPosition);
+    segments.unshift(segmentPosition);
   }
 
   direction = startDirection;
@@ -100,7 +100,7 @@ function showSegments() {
   endShape();
 }
 
-function updatesSegments() {
+function updateSegments() {
   segments.pop();
   let head = segments[0].copy();
   segments.unshift(head);

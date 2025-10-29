@@ -115,4 +115,17 @@ function updatesSegments() {
   }
 }
 
+function checkForCollision() {
+  let head = segments[0];
+  if (
+    head.x >= gridWidth ||
+    head.x < 0 ||
+    head.y >= gridHeight ||
+    head.y < 0 ||
+    selfColliding() === true 
+  ) {
+    gameOver();
+  }
+}
+
 
