@@ -23,6 +23,7 @@ let score = 0;
 let highScore;
 
 let fruit;
+let col
 
 function setup(){
   createCanvas (windowWidth, windowHeight);
@@ -202,11 +203,17 @@ for (let segment of segmentsAfterHead) {
 
 function checkForFruit() {
 
+
 //Store first segment as head 
   let head = segments[0];
 
+
 //If the head segment is in the same place as the fruit
+
   if (head.equals(fruit) === true) {
+  if (head.equals(fruit) = background (0) (col = color(random(255),random(255),random(255)))
+    print('eatsfruit')
+
 //Give a point to the player
     score = score + 1;
 
