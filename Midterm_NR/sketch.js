@@ -85,6 +85,11 @@ function startGame() {
 
 }
 
+function showFruit(){
+  stroke(255, 64, 32);
+  point(fruit.x, fruit.y);
+}
+
 function showSegments() {
   noFill();
   stroke(96, 255, 64);
@@ -112,6 +117,96 @@ function updatesSegments() {
    case 'down':
     head.y = head.y + 1;
     break;     
+  }
+}
+
+function checkForCollision() {
+  let head = segments[0];
+  if (
+    head.x >= gridWidth ||
+    head.x < 0 ||
+    head.y >= gridHeight ||
+    head.y < 0 ||
+    selfColliding() === true
+  ) {
+    gameOver();
+  }
+}
+
+function gameOver() {
+  noStroke();
+  fill (32);
+  rect(2, gridHeight / 2 - 5, gridWidth - 4, 12, 2);
+  fill(255);
+
+  highScore = max(score, highScore);
+  storeItem('high score', highScore);
+  text(
+    `Game over!
+Your score: ${score}
+High score: ${highScore}
+Click to play again` ,
+    gridWidth / 2,
+    gridHeight / 2
+  );
+  gameStarted = false;
+  noLoop();
+}
+
+function selfColliding() {
+  let head = segments[0];
+  let segmentsAfterHead = 
+segments.slice(1);
+
+for (let segment of segmentsAfterHead) {
+  if (segment.equals(head) === true) {
+
+   }
+ }
+ return false;
+}
+
+function checkForFruit() {
+  let head = segments[0];
+  if (head.equals(fruit) === true) {
+    score = score + 1;
+
+    let tail = segments [segments.length - 1];
+    let newSegment = tail.copy();
+
+    segments.push(newSegment);
+    updateFruitCoordinates();
+  }
+}
+
+function updateFruitCoordinates() { 
+  let x = floor(random(gridWidth));
+  let y = floor(random(gridHeight));
+  fruit = createVector(x,y);
+}
+
+function keyPressed() {
+  switch (keyCode) {
+    case LEFT_ARROW:
+      if ( direction !== 'right') {
+        direction = 'left' ;
+      }
+      break;
+    case RIGHT_ARROW:
+      if (direction !== 'left') {
+        direction = 'right';
+      }
+      break;
+    case UP_ARROW:
+      if (direction !== 'down') {
+        direction = 'up';
+      }
+      break;
+    case DOWN_ARROW:
+      if (direction !== 'up') {
+        direction = 'down';
+      }
+      break;
   }
 }
 
