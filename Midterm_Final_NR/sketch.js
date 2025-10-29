@@ -1,5 +1,5 @@
-let gridWidth = 30;
-let gridHeight = 30;
+let gridWidth = 50;
+let gridHeight = 50;
 
 let gameStarted = false;
 
