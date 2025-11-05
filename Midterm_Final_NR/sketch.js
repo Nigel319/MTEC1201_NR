@@ -23,7 +23,6 @@ let score = 0;
 let highScore;
 
 let fruit;
-let col
 
 function setup(){
   createCanvas (windowWidth, windowHeight);
@@ -211,7 +210,8 @@ function checkForFruit() {
 //If the head segment is in the same place as the fruit
 
   if (head.equals(fruit) === true) {
-  if (head.equals(fruit) = background (0) (col = color(random(255),random(255),random(255)))
+
+    background(random(255), random(255), random(255));
     print('eatsfruit')
 
 //Give a point to the player
