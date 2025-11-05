@@ -23,9 +23,12 @@ let score = 0;
 let highScore;
 
 let fruit;
+let col
 
 function setup(){
   createCanvas (windowWidth, windowHeight);
+
+  col = color(random(255), random(255), random(255))
 
   //Sets frame rate fro movenment speed here
   frameRate(10);
@@ -42,7 +45,7 @@ function setup(){
 }
 
 function draw() {
-  background(255, 204, 0);
+  background(col);
 
   //This is set so game grid fills the canvas
   scale(width / gridWidth, height / gridHeight);
@@ -211,7 +214,7 @@ function checkForFruit() {
 
   if (head.equals(fruit) === true) {
 
-    background(random(255), random(255), random(255));
+  col = color(random(255), random(255), random(255))
     print('eatsfruit')
 
 //Give a point to the player
