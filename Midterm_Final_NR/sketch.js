@@ -196,7 +196,8 @@ segments.slice(1);
 //Checks each of the other segments
 for (let segment of segmentsAfterHead) {
 //This is if they are in the same place as the head
-  if (segment.equals(head) === true) {
+  if (segment.equals(head)) {
+    return true;
 
    }
  }
@@ -215,7 +216,6 @@ function checkForFruit() {
   if (head.equals(fruit) === true) {
 
   col = color(random(255), random(255), random(255))
-    print('eatsfruit')
 
 //Give a point to the player
     score = score + 1;
